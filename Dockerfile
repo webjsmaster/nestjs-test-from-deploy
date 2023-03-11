@@ -6,11 +6,11 @@ COPY package.json ./
 COPY tsconfig.json ./
 COPY tsconfig.build.json ./
 
-RUN yarn add ./package.json
+RUN npm install && npm cache clean --force
 
-# RUN npm i nodemon -g
+RUN npm i nodemon -g
 
-RUN yarn build
+RUN npm run build
 
 COPY . .
 
@@ -18,4 +18,4 @@ EXPOSE 3000
 
 # RUN npm run migration:generate
 
-CMD  ["yarn", "start"]
+CMD  ["npm", "run", "start:dev"]
