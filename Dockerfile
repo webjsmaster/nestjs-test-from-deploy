@@ -14,7 +14,7 @@ RUN npm run build
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 80
 
 # RUN npm run migration:generate
 
