@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  library_app:
+    image: app_image
+    container_name: app_container
+    restart: always
+    build: .
+
