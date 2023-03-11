@@ -6,7 +6,7 @@ COPY package.json ./
 COPY tsconfig.json ./
 COPY tsconfig.build.json ./
 
-RUN yarn install
+RUN yarn add ./package.json
 
 # RUN npm i nodemon -g
 
