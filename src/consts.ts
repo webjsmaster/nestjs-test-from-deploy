@@ -19,7 +19,7 @@ export const cards: ICards[] = [
     rate: 4
   },
   {
-    id: 1,
+    id: 3,
     name: 'Third card',
     description: 'This is third card, and this any one',
     rate: 3

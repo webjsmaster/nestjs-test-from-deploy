@@ -3,7 +3,7 @@ import { cards, ICards } from './consts';
 
 @Injectable()
 export class AppService {
-  getHello(): ICards {
+  getHello(): ICards[] {
     return cards
   }
 }
