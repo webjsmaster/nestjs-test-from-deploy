@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { cards, ICards } from './consts';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World! From nest js';
+  getHello(): ICards {
+    return cards
   }
 }
