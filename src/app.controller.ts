@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
-import { ICards } from "./consts";
+import { Controller, Get } from '@nestjs/common'
+import { AppService } from './app.service'
+import { ICards } from './consts'
 
 @Controller('cards')
 export class AppController {
@@ -8,6 +8,6 @@ export class AppController {
 
   @Get()
   getHello(): ICards[] {
-    return this.appService.getHello();
+    return this.appService.getHello()
   }
 }
