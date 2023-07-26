@@ -1,5 +1,6 @@
 // import * as dotenv from 'dotenv'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
+import {DataSourceOptions} from "typeorm";
 
 // dotenv.config()
 
@@ -10,16 +11,16 @@ export const options = {
   username: process.env.TYPEORM_USERNAME as string,
   database: process.env.TYPEORM_DATABASE as string,
   password: process.env.TYPEORM_PASSWORD as string,
-  // migrationsRun: true,
-  // synchronize: false,
-  // logging: true,
-  // logger: 'file',
+  migrationsRun: true,
+  synchronize: false,
+  logging: true,
+  logger: 'file',
 }
-// export const dataSourceConfig = {
-//   ...options,
-//   entities: ['dist/**/entity/*.entity.js'],
-//   migrations: ['src/migrations/*.{ts,js}'],
-// } as DataSourceOptions
+export const dataSourceConfig = {
+  ...options,
+  entities: ['dist/**/entity/*.entity.js'],
+  migrations: ['src/migrations/*.{ts,js}'],
+} as DataSourceOptions
 
 export const typeOrmConfig = {
   ...options,
