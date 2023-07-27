@@ -1,8 +1,10 @@
-// import * as dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm'
-import {DataSourceOptions} from "typeorm";
+import { DataSourceOptions } from 'typeorm'
+import { UserEntity } from './api/users/entity/users.entity'
+import { ProductsEntity } from './api/products/entity/products.entity'
 
-// dotenv.config()
+dotenv.config()
 
 export const options = {
   type: process.env.TYPEORM_CONNECTION as string,
@@ -11,20 +13,28 @@ export const options = {
   username: process.env.TYPEORM_USERNAME as string,
   database: process.env.TYPEORM_DATABASE as string,
   password: process.env.TYPEORM_PASSWORD as string,
-  migrationsRun: true,
-  synchronize: false,
-  logging: true,
-  logger: 'file',
+  migrationsRun: false,
+  synchronize: true,
 }
 export const dataSourceConfig = {
   ...options,
-  entities: ['dist/**/entity/*.entity.js'],
+  entities: [UserEntity, ProductsEntity],
   migrations: ['src/migrations/*.{ts,js}'],
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  cli: {
+    entitiesDir: 'src/api/**/**/',
+    migrationsDir: 'src/migrations',
+  },
 } as DataSourceOptions
 
 export const typeOrmConfig = {
   ...options,
-  entities: [__dirname + '/**/**/*.entity.{ts,js}'],
+  entities: [__dirname + '/**/**/**/*.entity.{ts,js}'],
   migrations: [__dirname + './migrations/*.{ts,js}'],
-  retryAttempts: 10,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  retryAttempts: 5,
 } as TypeOrmModuleOptions
