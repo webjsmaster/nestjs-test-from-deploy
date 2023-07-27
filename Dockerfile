@@ -18,4 +18,4 @@ EXPOSE 80
 
 # RUN npm run migration:generate
 
-CMD  ["npm", "run", "start:dev"]
+CMD  ["npm", "run", "start"]
